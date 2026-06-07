@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+
+# VS Code
+.vscode/
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Audio or large files you might not want in git
+# Uncomment if you will add large audio files and prefer to keep them out of git
+# Audio/

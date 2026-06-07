@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Anniversary!</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container text-center py-5">
+      <div class="card shadow-lg p-4 bg-transparent border-0 text-white">
+        <h1 class="display-4 fw-bold hero-title">Happy Anniversary!</h1>
+        <p class="lead hero-sub">Celebrating love, laughter and memories together.</p>
++
+        <div class="mb-4">
+          <button id="celebrateBtn" class="btn btn-lg btn-light me-2">Celebrate 🎉</button>
+          <button id="showMosaicBtn" class="btn btn-lg btn-outline-light">Memories ✨</button>
+        </div>
+        <div id="message" class="h5 text-light">Click Celebrate to launch confetti and reveal a message.</div>
+      </div>
+    </div>
+    <!-- Circular image ring -> clickable thumbnails that set the hero background (attached to hero) -->
+    <div id="imageRing" class="image-ring" aria-hidden="false"></div>
+  </div>
+
+  <!-- Floating settings panel -->
+  <div id="settings" class="settings-panel">
+    <button id="settingsToggle" class="settings-toggle" aria-label="Adjust widgets">⚙️</button>
+    <div class="settings-body" aria-hidden="true">
+      <label class="form-label">Auto-adjust to image</label>
+      <div class="form-check form-switch mb-2">
+        <input class="form-check-input" type="checkbox" id="autoAdjust" checked>
+        <label class="form-check-label" for="autoAdjust">Enabled</label>
+      </div>
+      <div class="form-check form-switch mb-2">
+        <input class="form-check-input" type="checkbox" id="keepOnClick" checked>
+        <label class="form-check-label" for="keepOnClick">Keep selected as background on click</label>
+      </div>
+      <label class="form-label">Overlay opacity</label>
+      <input id="overlayRange" type="range" min="0" max="0.9" step="0.01" value="0.25" class="form-range mb-2">
+      <label class="form-label">Widget scale</label>
+      <input id="widgetRange" type="range" min="0.7" max="1.6" step="0.05" value="1" class="form-range">
+      <div class="mt-2 text-muted small">On mobile the controls move to bottom for easier reach.</div>
+      <div class="mt-2">
+        <button id="clearKept" class="btn btn-sm btn-outline-danger mt-2">Clear kept background</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- decorative layers -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Mosaic overlay (full images, touching, gapless) -->
+  <div id="mosaicOverlay" class="mosaic-overlay" aria-hidden="true">
+    <button id="closeMosaic" class="mosaic-close">✕</button>
+    <div id="mosaic" class="mosaic"></div>
+    <div id="viewer" class="viewer" aria-hidden="true"><button id="closeViewer" class="mosaic-close small">✕</button><img id="viewerImg" src="" alt=""/></div>
+  </div>
+
+  <!-- Audio for Memories (controls intentionally hidden; play is triggered by JS) -->
+  <audio id="memAudio" preload="auto"></audio>
+  <!-- Small audio thumbnail shown while audio is playing -->
+  <div id="audioThumb" class="audio-thumb" aria-hidden="true">🔊</div>
+
+  <!-- Bootstrap JS bundle (Popper included) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- face-api for in-browser face detection (optional, loads models from public CDN) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

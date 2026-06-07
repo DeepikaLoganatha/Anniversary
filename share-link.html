@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <title>Open Anniversary Page</title>
+  <style>
+    body{display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#111;color:#fff;font-family:system-ui,Arial}
+    .btn{background:linear-gradient(90deg,#ff6b6b,#ffd166);padding:18px 28px;border-radius:14px;color:#111;font-weight:700;font-size:1.2rem;text-decoration:none}
+    .note{margin-top:16px;opacity:.85;font-size:.9rem}
+  </style>
+</head>
+<body>
+  <div style="text-align:center">
+    <a id="open" class="btn" href="/index.html">Open Memories — Tap to view</a>
+    <div class="note">If the page doesn't load, try opening the full site URL instead.</div>
+  </div>
+  <script>
+    // attempt quick redirect after short delay (gives the button a chance to be used on iOS autoprefers)
+    setTimeout(()=>{ window.location.href = '/index.html'; }, 800);
+  </script>
+</body>
+</html>

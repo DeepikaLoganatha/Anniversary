@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anniversary Gallery & Music</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <div class="hero text-center text-white d-flex align-items-center justify-content-center">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="display-5 fw-bold">A Visual & Musical Tribute</h1>
+      <p class="lead mb-3">Browse special moments and create a playlist to celebrate together.</p>
+      <div class="btns">
+        <button id="startSlideshow" class="btn btn-lg btn-light me-2">Start Slideshow</button>
+        <button id="pauseSlideshow" class="btn btn-lg btn-outline-light">Pause</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-lg-8">
+        <div id="gallery" class="gallery-grid"></div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card p-3 shadow-sm">
+          <h5>Music Player</h5>
+          <p class="small text-muted">Add local songs (MP3/AAC) or try the sample tracks.</p>
+          <div class="mb-2">
+            <input id="audioFiles" type="file" accept="audio/*" multiple class="form-control form-control-sm" />
+          </div>
+          <div class="mb-2">
+            <button id="addSamples" class="btn btn-sm btn-primary me-2">Load Sample Tracks</button>
+            <button id="clearPlaylist" class="btn btn-sm btn-outline-secondary">Clear</button>
+          </div>
+          <div id="playlist" class="playlist"></div>
+          <div class="player-controls mt-3 d-flex gap-2 align-items-center">
+            <button id="prev" class="btn btn-sm btn-light">⏮</button>
+            <button id="playPause" class="btn btn-sm btn-primary">▶️</button>
+            <button id="next" class="btn btn-sm btn-light">⏭</button>
+            <button id="shuffle" class="btn btn-sm btn-outline-secondary ms-auto">Shuffle</button>
+          </div>
+          <div class="mt-3 small text-muted">Volume</div>
+          <input id="vol" type="range" min="0" max="1" step="0.01" value="0.8" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for large image -->
+  <div id="modal" class="modal-overlay" aria-hidden="true">
+    <button id="closeModal" class="close-btn">✕</button>
+    <button id="modalPrev" class="nav-btn prev">◀</button>
+    <img id="modalImg" src="" alt="" />
+    <button id="modalNext" class="nav-btn next">▶</button>
+    <div id="modalCaption" class="caption"></div>
+  </div>
+
+  <audio id="audioPlayer" crossorigin="anonymous"></audio>
+
+  <script src="gallery.js"></script>
+</body>
+</html>
